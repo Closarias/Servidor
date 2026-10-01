@@ -1,0 +1,13 @@
+UD2 · Sesion 1 · Codigo de clase
+Desarrollo web en entorno servidor 0613 · CDM Alcorcon · 26/27
+
+Solo hace falta el JDK 21. No hay ninguna libreria externa.
+
+El servidor que hace a mano lo que Spring te da hecho.
+    javac -encoding UTF-8 ServidorParametros.java
+    java ServidorParametros 8081
+
+Y luego, en el navegador:
+    http://localhost:8081/crudo?nombre=Ana&cantidad=3
+    http://localhost:8081/pedido?producto=Cubierta&precio=19.99&cantidad=3
+    http://localhost:8081/plantilla?nombre=Ana

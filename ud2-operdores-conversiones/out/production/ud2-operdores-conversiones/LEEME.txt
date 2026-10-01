@@ -1,0 +1,13 @@
+UD2 · Sesion 5 · Codigo de clase
+Desarrollo web en entorno servidor 0613 · Curso 26/27
+
+Solo hace falta el JDK 21. No hay ninguna libreria externa.
+
+Tipos, conversiones y operadores.
+    javac -encoding UTF-8 TiposYConversiones.java
+    java TiposYConversiones
+    javac -encoding UTF-8 Operadores.java
+    java Operadores
+
+IMPORTANTE: la actividad E1 empieza PREDICIENDO. No abras estos
+ficheros hasta que hayas rellenado la columna de predicciones.

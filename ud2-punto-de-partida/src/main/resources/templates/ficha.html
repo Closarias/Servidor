@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda</title>
+</head>
+<body>
+<div class="ficha">
+    <h1>OFERTA</h1>
+  <h2 th:text="${producto}">Macarrones</h2>
+  <p class="precio">El precio es <span th:text="${precio}">2</span></p>
+  <p th:text="${referencia}"></p>
+  <a th:href="@{/pedido}">Pedir</a>
+</div>
+</body>
+</html>

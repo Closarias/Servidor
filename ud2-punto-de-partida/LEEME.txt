@@ -1,0 +1,33 @@
+UD1 · Proyecto de ejemplo · Desarrollo web en entorno servidor 0613
+CDM Alcorcón · 2.º DAW · Curso 26/27
+
+Spring Boot 4.1.1 · Java 21 · Maven
+
+Este es el proyecto que se construye entre las actividades C1 y D1. Es el
+"camino B" de C1: el que se abre tal cual cuando la red del aula no da para
+que treinta y un alumnos se descarguen las dependencias a la vez.
+
+Cómo arrancarlo
+---------------
+  mvn spring-boot:run
+
+  y luego abrir  http://localhost:8080/saludo
+                 http://localhost:8080/saludo/Damian
+
+  Si no hay red y las dependencias ya están en tu ~/.m2:
+  mvn -o spring-boot:run
+
+Qué hay dentro
+--------------
+  pom.xml                                   Spring Boot 4.1.1, Java 21,
+                                            spring-boot-starter-web y -thymeleaf
+  src/main/java/.../Ud1PrimerServidorApplication.java   el main
+  src/main/java/.../SaludoController.java              /saludo y /saludo/{nombre}
+  src/main/resources/templates/saludo.html             la plantilla Thymeleaf
+  src/main/resources/application.properties            puerto y caché de plantillas
+
+La versión importa
+------------------
+El repositorio offline del kit de aula está construido para ESTA versión de
+Spring Boot. Si se cambia la línea del <version> del pom, hay que volver a
+lanzar 00_construir_kit para rehacer el repositorio.
