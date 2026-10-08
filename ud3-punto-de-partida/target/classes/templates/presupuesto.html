@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Presupuesto</title>
+</head>
+<body>
+
+    <h1 th:text="${producto}">Nombre del articulo</h1>
+
+    <table>
+        <tr><th>Concepto</th><th>Importe</th></tr>
+        <tr><td>Unidades</td>   <td th:text="${unidades}">0</td></tr>
+        <tr><td>Precio</td>     <td th:text="${precio}">0,00</td></tr>
+        <tr><td>Base</td>       <td th:text="${base}">0,00</td></tr>
+        <tr><td>IVA (21 %)</td> <td th:text="${iva}">0,00</td></tr>
+        <tr><td><strong>Total</strong></td><td th:text="${total}">0,00</td></tr>
+    </table>
+
+</body>
+</html>

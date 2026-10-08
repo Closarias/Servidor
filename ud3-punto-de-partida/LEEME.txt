@@ -1,0 +1,28 @@
+UD3 · Punto de partida · Desarrollo web en entorno servidor 0613
+2.º DAW · Curso 26/27
+
+Spring Boot 4.1.1 · Java 21 · Maven
+
+Este es el proyecto tal y como tenia que quedar al terminar la UD2: el saludo
+de la UD1 y el desglose con IVA de la UD2. Si has perdido el tuyo, descomprime
+este y sigue desde aqui.
+
+Como arrancarlo
+---------------
+  mvn spring-boot:run
+
+  y luego abrir  http://localhost:8080/saludo
+                 http://localhost:8080/presupuesto?producto=Cubierta&unidades=3&precio=24.90
+
+  Si no hay red y las dependencias ya estan en tu ~/.m2:
+  mvn -o spring-boot:run
+
+Que hay dentro
+--------------
+  SaludoController.java        la UD1
+  PresupuestoController.java   la UD2: lee, calcula y devuelve una plantilla
+  templates/saludo.html
+  templates/presupuesto.html
+
+Lo que NO hay, y es lo que se construye en la UD3:
+  ninguna decision (if), ningun bucle, ninguna coleccion y ningun formulario.
