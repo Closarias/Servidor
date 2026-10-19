@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Alta de socio</title>
+</head>
+<body>
+
+<h1>ALTA DE SOCIO</h1>
+<hr>
+
+<div th:if="${errores}">
+    <p>No se ha podido dar de alta:</p>
+    <ul>
+        <li th:each="error : ${errores}" th:text="${error}"></li>
+    </ul>
+</div>
+
+<form th:action="@{/socio}" th:object="${form}" method="post">
+
+    <p>
+        <label>Nombre:</label>
+        <input type="text" th:field="*{nombre}">
+    </p>
+
+    <p>
+        <label>Email:</label>
+        <input type="text" th:field="*{email}">
+    </p>
+
+    <p>
+        <label>Edad:</label>
+        <input type="number" th:field="*{edad}">
+    </p>
+
+    <p>
+        <label>Modalidad:</label>
+        <select th:field="*{modalidad}">
+            <option value="general">General</option>
+            <option value="reducida">Reducida</option>
+        </select>
+    </p>
+
+    <p>
+        <input type="checkbox" th:field="*{novedades}">
+        <label>Quiere recibir novedades por correo</label>
+    </p>
+
+    <button type="submit">Dar de alta</button>
+
+</form>
+
+</body>
+</html>

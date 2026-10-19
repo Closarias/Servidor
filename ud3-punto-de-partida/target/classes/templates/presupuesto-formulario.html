@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de bicicletas</title>
+</head>
+<body>
+
+<h1>Solicitar presupuesto de bicicleta</h1>
+
+<div th:if="${errores != null}">
+    <ul>
+        <li th:each="error : ${errores}" th:text="${error}"></li>
+    </ul>
+</div>
+
+<form th:action="@{/bicicleta}"
+      th:object="${form}"
+      method="post">
+
+    <label for="tipo">Tipo de bicicleta:</label>
+    <input type="text" id="tipo" th:field="*{tipo}">
+    <br><br>
+
+    <label for="unidades">Unidades:</label>
+    <input type="number" id="unidades"
+           min="1" max="100" th:field="*{unidades}">
+    <br><br>
+
+    <label for="precio">Precio por unidad:</label>
+    <input type="number" id="precio"
+           step="0.01" min="0.01" th:field="*{precio}">
+    <br><br>
+
+    <label for="montaje">¿Necesita montaje?</label>
+    <input type="checkbox" id="montaje" th:field="*{montaje}">
+    <br><br>
+
+    <button type="submit">Calcular presupuesto</button>
+</form>
+
+<div th:if="${total != null}">
+    <h2>Resultado del presupuesto</h2>
+    <p>Tipo de bicicleta: <span th:text="${tipo}"></span></p>
+    <p>Unidades: <span th:text="${unidades}"></span></p>
+    <p>Precio por unidad: <span th:text="${precio}"></span> €</p>
+    <p>Montaje: <span th:text="${montaje ? 'Sí' : 'No'}"></span></p>
+    <p>Base imponible: <span th:text="${base}"></span> €</p>
+    <p>IVA (21 %): <span th:text="${iva}"></span> €</p>
+    <p><strong>Total: <span th:text="${total}"></span> €</strong></p>
+</div>
+
+</body>
+</html>

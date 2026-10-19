@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Catálogo</title>
+</head>
+<body>
+<table>
+    <p th:if="${catalogo.isEmpty()}">No hay articulos que mostrar.</p>
+    <tr><th>Articulo</th><th>Precio</th></tr>
+    <tr th:each="a,estado : ${catalogo}">
+        <td th:text="${estado.count}">1</td>
+        <td th:text="${a.nombre}">Nombre de ejemplo</td>
+        <td th:text="${a.precio}">0,00</td>
+        <td>
+            <span th:if="${a.stock > 0}">Disponible</span>
+            <span th:unless="${a.stock > 0}">Agotado</span>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

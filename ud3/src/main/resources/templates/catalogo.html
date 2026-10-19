@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Catalogo</title>
+</head>
+<body>
+
+<h1>CATALOGO</h1>
+
+<form th:action="@{/catalogo}" th:object="${form}" method="get">
+
+    <label for="titulo">Titulo:</label>
+    <input type="text" id="titulo" th:field="*{titulo}">
+
+    <label for="disponibles">Solo disponibles</label>
+    <input type="checkbox" id="disponibles"
+           th:field="*{disponibles}">
+
+    <button type="submit">Buscar</button>
+
+</form>
+
+<table th:if="${!biblioteca.isEmpty()}">
+    <tr>
+        <th>#</th>
+        <th>Titulo</th>
+        <th>Autor</th>
+        <th>Ano</th>
+        <th>Copias</th>
+    </tr>
+
+    <tr th:each="libro, id : ${biblioteca}">
+        <td th:text="${id.count}">1</td>
+        <td th:text="${libro.titulo()}">Titulo</td>
+        <td th:text="${libro.autor()}">Autor</td>
+        <td th:text="${libro.ano()}">Ano</td>
+        <td th:text="${libro.copias()}">Copias</td>
+    </tr>
+</table>
+
+<p th:if="${biblioteca.isEmpty()}">
+    No hay libros con ese titulo
+</p>
+
+</body>
+</html>

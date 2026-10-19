@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Saludo</title>
+</head>
+<body>
+
+  <!-- th:text SUSTITUYE el contenido de la etiqueta.
+       El texto que hay escrito dentro solo se ve si abres este fichero
+       directamente con el navegador, sin pasar por el servidor. -->
+  <h1 th:text="|Hola, ${nombre}|">Hola, alguien</h1>
+
+  <p>Son las <span th:text="${hora}">00:00:00</span> en el servidor.</p>
+  <p>Curso <span th:text="${curso}">00/00</span>.</p>
+
+</body>
+</html>

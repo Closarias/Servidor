@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de bicicletas</title>
+</head>
+<body>
+
+<h1>Solicitar presupuesto de bicicleta</h1>
+
+<div th:if="${errores != null and !errores.isEmpty()}">
+    <h3>Corrige los siguientes errores:</h3>
+    <ul>
+        <li th:each="error : ${errores}"
+            th:text="${error}">
+        </li>
+    </ul>
+</div>
+
+<form th:action="@{/bicicleta}"
+      th:object="${form}"
+      method="post">
+
+    <label for="tipo">Tipo de bicicleta:</label>
+    <input type="text"
+           id="tipo"
+           th:field="*{tipo}"
+           required>
+    <br><br>
+
+    <label for="unidades">Unidades:</label>
+    <input type="number"
+           id="unidades"
+           th:field="*{unidades}"
+           min="1"
+           max="100"
+           required>
+    <br><br>
+
+    <label for="precio">Precio por unidad (€):</label>
+    <input type="number"
+           id="precio"
+           th:field="*{precio}"
+           step="0.01"
+           min="0.01"
+           required>
+    <br><br>
+
+    <label for="montaje">¿Necesita montaje?</label>
+    <input type="checkbox"
+           id="montaje"
+           th:field="*{montaje}">
+    <br><br>
+
+    <button type="submit">Calcular presupuesto</button>
+</form>
+
+<div th:if="${total != null}">
+    <h2>Resultado del presupuesto</h2>
+
+    <p>Tipo de bicicleta:
+        <span th:text="${tipo}"></span>
+    </p>
+
+    <p>Unidades:
+        <span th:text="${unidades}"></span>
+    </p>
+
+    <p>Precio por unidad:
+        <span th:text="${#numbers.formatDecimal(precio, 1, 2)}"></span> €
+    </p>
+
+    <p>Montaje:
+        <span th:text="${montaje ? 'Sí' : 'No'}"></span>
+    </p>
+
+    <p>Base imponible:
+        <span th:text="${#numbers.formatDecimal(base, 1, 2)}"></span> €
+    </p>
+
+    <p>IVA (21 %):
+        <span th:text="${#numbers.formatDecimal(iva, 1, 2)}"></span> €
+    </p>
+
+    <p>
+        <strong>
+            Total:
+            <span th:text="${#numbers.formatDecimal(total, 1, 2)}"></span> €
+        </strong>
+    </p>
+</div>
+
+</body>
+</html>

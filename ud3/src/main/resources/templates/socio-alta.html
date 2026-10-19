@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmación</title>
+</head>
+<body>
+
+<h1>ALTA COMPLETADA</h1>
+<hr>
+
+<p>Socio dado de alta correctamente.</p>
+
+<p>Número de socio:
+    <strong th:text="${numero}"></strong>
+</p>
+
+<p>Cuota anual:
+    <strong th:text="${cuota + ' €'}"></strong>
+</p>
+
+<a th:href="@{/catalogo}">Volver al catálogo</a>
+
+</body>
+</html>
